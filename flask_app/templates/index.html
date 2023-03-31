@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="main">
+
+        <div class="form">
+            <form action="/create/dojo" method="post" class="text-lg-start">
+                <h1>New Dojo</h1>
+                <label for="location">New Dojo:</label>
+                <input type="text" name="location">
+                <div>
+                    <input type="submit" value="create dojo" class="btn">
+                </div>
+            </form>
+        </div>
+        <div class="border border-success p-2 mb-2 border-opacity-75">
+            <table class="table">
+                <th class="fst-italic">All Dojos</th>
+                <tbody>
+                    
+                    {%for dojo in all_dojos%}
+                    <tr>
+                        <td> {{dojo.location }} </td>
+                        <td>    
+                            <a href="/dojos/{{dojo.id}}" class="btn fst-italic"> Show Dojo {{dojo.location}} and Ninjas</a>
+                            <a href="/dojos/delete/{{dojo.id}}"> DELETE</a>
+                        </td>
+                        
+                    </tr>
+                    {%endfor%}
+                </tbody>
+            </table>
+            <a href="/dojos/ninjas" class="btn">add a ninja</a>
+        </div>
+        
+
+
+    </div>
+
+
+
+</body>
+</html>
